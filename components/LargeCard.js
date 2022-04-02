@@ -5,6 +5,7 @@ function LargeCard({img,title,description,buttonText}) {
     <section className="relative py-16 cursor-pointer">
         <div className="relative h-96 min-w-[300]">
             <Image src={img}
+            alt="Large card"
             layout="fill"
             objectFit="cover"
             className="rounded-2xl"
