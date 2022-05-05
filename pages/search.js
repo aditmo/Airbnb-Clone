@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
 
-function Search({ searchResults }) {
-  console.log(searchResults);
+function Search({searchResults}) {
+  
   const router = useRouter();
-
+  
   const { location, startDate, endDate, noOfGuests } = router.query;
 
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
@@ -34,25 +34,27 @@ function Search({ searchResults }) {
             <p className="button">Rooms and Beds</p>
             <p className="button">More Filters</p>
           </div>
-          <div>
+          <div className="flex flex-col">
             {searchResults.map(
-              ({ img, location, title, description, star, price, total }) => {
+              ({img, location, title, description, star, price, total}) => (
                 <InfoCard
-                  key={img}
-                  img={img}
-                  location={location}
-                  title={title}
-                  description={description}
-                  star={star}
-                  price={price}
-                  total={total}
-                />;
-              }
+                img={img}
+                location={location}
+                title={title}
+                description={description}
+                star={star}
+                price={price}
+                total={total}
+                key={img}
+                  
+                />
+
+              )
             )}
+            
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );
